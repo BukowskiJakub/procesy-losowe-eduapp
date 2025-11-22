@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Procesy Losowe - EduApp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- MathJax configuration -->
+    <script>
+      window.MathJax = {
+        tex: {
+          // Allow $...$ for inline math in descriptions
+          inlineMath: [['\\(', '\\)'], ['$', '$']],
+          displayMath: [['\\[', '\\]']],
+          packages: {'[+]': ['base', 'ams']}
+        },
+        options: {
+          enableMenu: false, // Disable right-click menu
+          menuOptions: {
+            settings: {
+              assistiveMml: false // Disable assistive MathML to prevent artifacts
+            }
+          }
+        },
+        startup: {
+          typeset: false // Manual typesetting in React
+        }
+      };
+    </script>
+    <!-- MathJax script - Switch to CHTML for better layout stability -->
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .math-font {
+        font-family: 'Merriweather', serif;
+      }
+      /* MathJax output styling fixes */
+      mjx-container {
+        outline: none !important;
+      }
+      
+      /* Aggressively hide assistive MathML elements that cause black lines */
+      mjx-assistive-mml, .mjx-assistive-mml {
+        display: none !important;
+        visibility: hidden !important;
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+        width: 0 !important;
+        height: 0 !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        clip: rect(1px, 1px, 1px, 1px);
+        overflow: hidden;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "react": "https://aistudiocdn.com/react@^19.2.0"
+      }
+    }
+    </script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-slate-50 text-slate-900">
+    <div id="root"></div>
+    <script type="module" src="./index.tsx"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
