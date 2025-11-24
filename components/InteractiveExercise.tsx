@@ -44,6 +44,12 @@ export default function InteractiveExerciseComponent({ exercise, onComplete }: I
         }
     };
 
+    const handleShowAnswer = () => {
+        setUserAnswers(exercise.correctAnswers);
+        setIsCorrect(true);
+        setShowExplanation(true);
+    };
+
     // Split content by placeholders to render inputs
     const renderContent = () => {
         const parts = exercise.content.split('{{}}');
@@ -58,10 +64,10 @@ export default function InteractiveExerciseComponent({ exercise, onComplete }: I
                                 value={userAnswers[index] || ''}
                                 onChange={(e) => handleInputChange(index, e.target.value)}
                                 className={`mx-2 px-2 py-1 border-b-2 outline-none transition-colors w-32 text-center font-mono ${isCorrect
-                                        ? 'border-green-500 bg-green-50 text-green-700'
-                                        : attempts > 0 && userAnswers[index].trim().toLowerCase() !== exercise.correctAnswers[index].trim().toLowerCase()
-                                            ? 'border-red-300 bg-red-50'
-                                            : 'border-indigo-200 focus:border-indigo-500 bg-indigo-50/30'
+                                    ? 'border-green-500 bg-green-50 text-green-700'
+                                    : attempts > 0 && userAnswers[index].trim().toLowerCase() !== exercise.correctAnswers[index].trim().toLowerCase()
+                                        ? 'border-red-300 bg-red-50'
+                                        : 'border-indigo-200 focus:border-indigo-500 bg-indigo-50/30'
                                     }`}
                                 placeholder="..."
                                 disabled={isCorrect}
@@ -86,17 +92,31 @@ export default function InteractiveExerciseComponent({ exercise, onComplete }: I
                 </div>
 
                 {!showExplanation && (
-                    <div className="flex items-center gap-4">
-                        <button
-                            onClick={checkAnswers}
-                            className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-sm"
-                        >
-                            Sprawdź odpowiedzi
-                        </button>
+                    <div className="flex flex-col gap-3">
+                        <div className="flex items-center gap-4">
+                            <button
+                                onClick={checkAnswers}
+                                className="px-6 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors shadow-sm"
+                            >
+                                Sprawdź odpowiedzi
+                            </button>
+
+                            {attempts >= 3 && (
+                                <button
+                                    onClick={handleShowAnswer}
+                                    className="px-6 py-2 bg-amber-100 text-amber-800 border border-amber-200 rounded-lg font-medium hover:bg-amber-200 transition-colors shadow-sm"
+                                >
+                                    Pokaż odpowiedź
+                                </button>
+                            )}
+                        </div>
+
                         {attempts > 0 && !isCorrect && (
-                            <span className="text-red-500 text-sm animate-pulse">
-                                Niektóre odpowiedzi są niepoprawne. Spróbuj ponownie.
-                            </span>
+                            <div className="text-red-600 bg-red-50 border border-red-100 p-3 rounded-lg text-sm animate-pulse">
+                                <strong>Niestety, to nie jest poprawna odpowiedź.</strong>
+                                <br />
+                                Spróbuj jeszcze raz. {attempts < 3 ? `(Pozostało prób do odblokowania podpowiedzi: ${3 - attempts})` : 'Możesz teraz wyświetlić poprawną odpowiedź.'}
+                            </div>
                         )}
                     </div>
                 )}

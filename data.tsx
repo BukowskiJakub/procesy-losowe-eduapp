@@ -372,17 +372,17 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 5: Prawdopodobieństwo z przedziału',
-        content: 'Chcemy obliczyć $P(1/3 &lt; X &lt; 4)$.<br/>Uwaga! Nasza zmienna $X$ istnieje tylko do $x=1$. Więc przedział to tak naprawdę $(1/3, 1)$.<br/>Korzystamy z dystrybuanty: $P(a &lt; X &lt; b) = F(b) - F(a)$.',
-        formula: String.raw`P(1/3 &lt; X &lt; 1) = F(1) - F(1/3) = 1^3 - \left(\frac{1}{3}\right)^3 = 1 - \frac{1}{27} = \frac{26}{27}`
+        content: 'Chcemy obliczyć $P(1/3 < X < 4)$.<br/>Uwaga! Nasza zmienna $X$ istnieje tylko do $x=1$. Więc przedział to tak naprawdę $(1/3, 1)$.<br/>Korzystamy z dystrybuanty: $P(a < X < b) = F(b) - F(a)$.',
+        formula: String.raw`P(1/3 < X < 1) = F(1) - F(1/3) = 1^3 - \left(\frac{1}{3}\right)^3 = 1 - \frac{1}{27} = \frac{26}{27}`
       },
       {
         title: 'Krok 6: Transformacja zmiennej losowej',
-        content: 'Mamy nową zmienną $Y = \arcsin(X)$. Szukamy jej gęstości $p_Y(y)$.<br/>1. Wyznaczamy funkcję odwrotną: $X = \sin(Y)$.<br/>2. Określamy dziedzinę $Y$. Skoro $X \\in (0,1)$, to $Y \\in (\arcsin 0, \arcsin 1) = (0, \pi/2)$.',
+        content: 'Mamy nową zmienną $Y = \\arcsin(X)$. Szukamy jej gęstości $p_Y(y)$.<br/>1. Wyznaczamy funkcję odwrotną: $X = \\sin(Y)$.<br/>2. Określamy dziedzinę $Y$. Skoro $X \\in (0,1)$, to $Y \\in (\\arcsin 0, \\arcsin 1) = (0, \\pi/2)$.',
         formula: String.raw`x = h(y) = \sin(y)`
       },
       {
         title: 'Krok 7: Wzór na gęstość transformowaną',
-        content: 'Stosujemy wzór: $p_Y(y) = p_X(h(y)) \cdot |h\'(y)|$.<br/>Pochodna $h\'(y) = (\sin y)\' = \cos y$.<br/>Podstawiamy $x = \sin y$ do wzoru na $p_X(x) = 3x^2$.',
+        content: 'Stosujemy wzór: $p_Y(y) = p_X(h(y)) \\cdot |h\\\'(y)|$.<br/>Pochodna $h\\\'(y) = (\\sin y)\\\' = \\cos y$.<br/>Podstawiamy $x = \\sin y$ do wzoru na $p_X(x) = 3x^2$.',
         formula: String.raw`p_Y(y) = 3(\sin y)^2 \cdot |\cos y| = 3\sin^2 y \cos y`
       }
     ],
@@ -448,7 +448,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 2: Punkt x = -a',
-        content: 'Podstawiamy $-a$ do wzoru środkowego ($A + B\arcsin(x/a)$).<br/>$\arcsin(-a/a) = \arcsin(-1) = -\pi/2$.<br/>Przyrównujemy do wartości z lewej strony (czyli 0).',
+        content: 'Podstawiamy $-a$ do wzoru środkowego ($A + B\\arcsin(x/a)$).<br/>$\\arcsin(-a/a) = \\arcsin(-1) = -\\pi/2$.<br/>Przyrównujemy do wartości z lewej strony (czyli 0).',
         formula: String.raw`A + B(-\frac{\pi}{2}) = 0 \quad \Rightarrow \quad A = B\frac{\pi}{2}`
       },
       {
@@ -458,12 +458,12 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 4: Układ równań',
-        content: 'Mamy dwa równania:<br/>1) $A = B\pi/2$<br/>2) $A + B\pi/2 = 1$<br/>Podstawiamy pierwsze do drugiego: $B\pi/2 + B\pi/2 = 1 \Rightarrow B\pi = 1$.',
+        content: 'Mamy dwa równania:<br/>1) $A = B\\pi/2$<br/>2) $A + B\\pi/2 = 1$<br/>Podstawiamy pierwsze do drugiego: $B\\pi/2 + B\\pi/2 = 1 \\Rightarrow B\\pi = 1$.',
         formula: String.raw`B = \frac{1}{\pi}, \quad A = \frac{1}{\pi} \cdot \frac{\pi}{2} = \frac{1}{2}`
       },
       {
         title: 'Krok 5: Obliczanie gęstości f(x)',
-        content: 'Gęstość to pochodna dystrybuanty: $f(x) = F\'(x)$.<br/>Pochodna stałej $A$ to 0. Musimy zróżniczkować $B \arcsin(x/a)$.<br/>Wzór: $(\arcsin u)\' = \frac{u\'}{\sqrt{1-u^2}}$.',
+        content: 'Gęstość to pochodna dystrybuanty: $f(x) = F\'(x)$.<br/>Pochodna stałej $A$ to 0. Musimy zróżniczkować $B \\arcsin(x/a)$.<br/>Wzór: $(\\arcsin u)\' = \\frac{u\'}{\\sqrt{1-u^2}}$.',
         formula: String.raw`f(x) = B \cdot \frac{(x/a)'}{\sqrt{1-(x/a)^2}} = \frac{1}{\pi} \cdot \frac{1/a}{\sqrt{1 - x^2/a^2}}`
       },
       {
@@ -486,17 +486,17 @@ export const PROBLEMS_DATA: Problem[] = [
     steps: [
       {
         title: 'Krok 1: Analiza transformacji',
-        content: 'Mamy zmienną losową $\phi$ i nową zmienną $U$. Szukamy gęstości $p_U(u)$.<br/>Znamy wzór transformacji: $u = g(\phi) = U_0 \sin(\phi)$.',
+        content: 'Mamy zmienną losową $\\phi$ i nową zmienną $U$. Szukamy gęstości $p_U(u)$.<br/>Znamy wzór transformacji: $u = g(\\phi) = U_0 \\sin(\\phi)$.',
         formula: ""
       },
       {
         title: 'Krok 2: Funkcja odwrotna',
-        content: 'Musimy wyznaczyć $\phi$ jako funkcję $u$. Dzielimy przez $U_0$ i bierzemy arcus sinus.',
+        content: 'Musimy wyznaczyć $\\phi$ jako funkcję $u$. Dzielimy przez $U_0$ i bierzemy arcus sinus.',
         formula: String.raw`\phi = h(u) = \arcsin\left(\frac{u}{U_0}\right)`
       },
       {
         title: 'Krok 3: Obliczenie Jakobianu (pochodnej)',
-        content: 'Musimy policzyć moduł z pochodnej funkcji odwrotnej: $|\frac{d\phi}{du}|$.<br/>Pamiętamy, że $(\arcsin x)\' = \frac{1}{\sqrt{1-x^2}}$.',
+        content: 'Musimy policzyć moduł z pochodnej funkcji odwrotnej: $|\\frac{d\\phi}{du}|$.<br/>Pamiętamy, że $(\\arcsin x)\' = \\frac{1}{\\sqrt{1-x^2}}$.',
         formula: String.raw`\frac{d\phi}{du} = \frac{1}{\sqrt{1 - (\frac{u}{U_0})^2}} \cdot \left(\frac{u}{U_0}\right)' = \frac{1}{\sqrt{1 - \frac{u^2}{U_0^2}}} \cdot \frac{1}{U_0}`
       },
       {
@@ -506,7 +506,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 5: Wzór na gęstość',
-        content: 'Stosujemy wzór: $p_U(u) = p_\phi(h(u)) \cdot |h\'(u)|$.<br/>Gęstość fazy $p_\phi$ jest stała i wynosi $1/\pi$.',
+        content: 'Stosujemy wzór: $p_U(u) = p_\\phi(h(u)) \\cdot |h\'(u)|$.<br/>Gęstość fazy $p_\\phi$ jest stała i wynosi $1/\\pi$.',
         formula: String.raw`p_U(u) = \frac{1}{\pi} \cdot \frac{1}{\sqrt{U_0^2 - u^2}} \quad \text{dla } u \in (-U_0, U_0)`
       }
     ],
@@ -526,7 +526,7 @@ export const PROBLEMS_DATA: Problem[] = [
     steps: [
       {
         title: 'Krok 1: Warunek normalizacyjny',
-        content: 'Objętość pod wykresem gęstości łącznej musi wynosić 1. Całkujemy po prostokącie: $x \in (0,2)$ i $y \in (0,1)$.',
+        content: 'Objętość pod wykresem gęstości łącznej musi wynosić 1. Całkujemy po prostokącie: $x \\in (0,2)$ i $y \\in (0,1)$.',
         formula: String.raw`\int_0^1 \int_0^2 (kxy + x) dx dy = 1`
       },
       {
@@ -546,7 +546,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 5: Sprawdzenie niezależności',
-        content: 'Gęstość ma postać $p(x,y) = -xy + x = x(1-y)$.<br/>Czy da się to zapisać jako iloczyn funkcji tylko od $x$ i tylko od $y$?<br/>Tak! $g(x) = x$ oraz $h(y) = 1-y$.<br/>Jeżeli gęstość łączna faktoryzuje się na iloczyn $X \cdot Y$ na prostokątnej dziedzinie, zmienne są niezależne.',
+        content: 'Gęstość ma postać $p(x,y) = -xy + x = x(1-y)$.<br/>Czy da się to zapisać jako iloczyn funkcji tylko od $x$ i tylko od $y$?<br/>Tak! $g(x) = x$ oraz $h(y) = 1-y$.<br/>Jeżeli gęstość łączna faktoryzuje się na iloczyn $X \\cdot Y$ na prostokątnej dziedzinie, zmienne są niezależne.',
         formula: String.raw`p(x,y) = x \cdot (1-y) \Rightarrow \text{Niezależne}`
       }
     ],
@@ -564,7 +564,7 @@ export const PROBLEMS_DATA: Problem[] = [
     steps: [
       {
         title: 'Krok 1: Całka podwójna',
-        content: 'Musimy scałkować $k(x+y)$ po kwadracie $2\times 2$.',
+        content: 'Musimy scałkować $k(x+y)$ po kwadracie $2\\times 2$.',
         formula: String.raw`k \int_0^2 \left( \int_0^2 (x+y) dx \right) dy = 1`
       },
       {
@@ -579,7 +579,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 4: Wyznaczenie k',
-        content: '$k \cdot 8 = 1$, więc:',
+        content: '$k \\cdot 8 = 1$, więc:',
         formula: String.raw`k = \frac{1}{8}`
       },
       {
@@ -589,7 +589,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 6: Sprawdzenie niezależności',
-        content: 'Zmienne są niezależne, jeśli $p(x,y) = p_X(x) \cdot p_Y(y)$.<br/>Ze względu na symetrię $p_Y(y) = (y+1)/4$.<br/>Sprawdźmy iloczyn: $\frac{x+1}{4} \cdot \frac{y+1}{4} = \frac{xy+x+y+1}{16}$.<br/>To NIE jest równe $\frac{x+y}{8}$.',
+        content: 'Zmienne są niezależne, jeśli $p(x,y) = p_X(x) \\cdot p_Y(y)$.<br/>Ze względu na symetrię $p_Y(y) = (y+1)/4$.<br/>Sprawdźmy iloczyn: $\\frac{x+1}{4} \\cdot \\frac{y+1}{4} = \\frac{xy+x+y+1}{16}$.<br/>To NIE jest równe $\\frac{x+y}{8}$.',
         formula: String.raw`\text{Zmienne są ZALEŻNE}`
       }
     ],
@@ -617,7 +617,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 3: Sprawdzanie ortogonalności',
-        content: 'Zmienne są ortogonalne, jeśli korelacja $E[XY] = 0$.<br/>Wzór: $E[XY] = \iint xy \cdot p(x,y) dx dy$.',
+        content: 'Zmienne są ortogonalne, jeśli korelacja $E[XY] = 0$.<br/>Wzór: $E[XY] = \\iint xy \\cdot p(x,y) dx dy$.',
         formula: String.raw`E[XY] = \int_0^1 \int_0^1 xy \cdot (6xy^2) dx dy = 6 \int_0^1 x^2 dx \int_0^1 y^3 dy`
       },
       {
@@ -627,7 +627,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 5: Wniosek',
-        content: 'Ponieważ $E[XY] = 0.5 \neq 0$, zmienne <strong>nie są ortogonalne</strong>.',
+        content: 'Ponieważ $E[XY] = 0.5 \\neq 0$, zmienne <strong>nie są ortogonalne</strong>.',
         formula: ""
       }
     ],
@@ -645,17 +645,17 @@ export const PROBLEMS_DATA: Problem[] = [
     steps: [
       {
         title: 'Krok 1: Wyznaczanie Dystrybuant Brzegowych',
-        content: 'Dystrybuantę brzegową $X$ otrzymujemy, biorąc granicę $y \to \infty$.<br/>Ponieważ $\lim_{y \to \infty} e^{-by} = 0$, nawias z $y$ staje się (1-0) = 1.',
+        content: 'Dystrybuantę brzegową $X$ otrzymujemy, biorąc granicę $y \\to \\infty$.<br/>Ponieważ $\\lim_{y \\to \\infty} e^{-by} = 0$, nawias z $y$ staje się (1-0) = 1.',
         formula: String.raw`F_X(x) = \lim_{y \to \infty} F(x,y) = 1 - e^{-ax}`
       },
       {
         title: 'Krok 2: Dystrybuanta brzegowa Y',
-        content: 'Analogicznie bierzemy granicę $x \to \infty$.',
+        content: 'Analogicznie bierzemy granicę $x \\to \\infty$.',
         formula: String.raw`F_Y(y) = \lim_{x \to \infty} F(x,y) = 1 - e^{-by}`
       },
       {
         title: 'Krok 3: Warunek niezależności',
-        content: 'Zmienne są niezależne, jeśli $F(x,y) = F_X(x) \cdot F_Y(y)$.',
+        content: 'Zmienne są niezależne, jeśli $F(x,y) = F_X(x) \\cdot F_Y(y)$.',
         formula: String.raw`(1 - e^{-ax})(1 - e^{-by}) = (1 - e^{-ax}) \cdot (1 - e^{-by})`
       },
       {
@@ -680,7 +680,7 @@ export const PROBLEMS_DATA: Problem[] = [
     steps: [
       {
         title: 'Krok 1: Analiza funkcji',
-        content: 'Funkcja gęstości jest iloczynem funkcji jednej zmiennej. To bardzo ułatwia sprawę.<br/>$p(x,y) = A \cdot (x_1) \cdot (x_2) \cdot (y_1^3) \cdot (\cos y_2)$.<br/>Możemy policzyć całkę jako iloczyn 4 całek pojedynczych.',
+        content: 'Funkcja gęstości jest iloczynem funkcji jednej zmiennej. To bardzo ułatwia sprawę.<br/>$p(x,y) = A \\cdot (x_1) \\cdot (x_2) \\cdot (y_1^3) \\cdot (\\cos y_2)$.<br/>Możemy policzyć całkę jako iloczyn 4 całek pojedynczych.',
         formula: ""
       },
       {
@@ -700,7 +700,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 5: Niezależność wektorów',
-        content: 'Rozkład łączny wektorów faktoryzuje się na część zależną tylko od wektora $X$ ($4x_1 x_2$) i tylko od wektora $Y$ ($y_1^3 \cos y_2$).<br/>Zgodnie z twierdzeniem o faktoryzacji, oznacza to, że wektory losowe $X$ i $Y$ są niezależne.',
+        content: 'Rozkład łączny wektorów faktoryzuje się na część zależną tylko od wektora $X$ ($4x_1 x_2$) i tylko od wektora $Y$ ($y_1^3 \\cos y_2$).<br/>Zgodnie z twierdzeniem o faktoryzacji, oznacza to, że wektory losowe $X$ i $Y$ są niezależne.',
         formula: String.raw`p(\vec{x}, \vec{y}) = p_X(\vec{x}) \cdot p_Y(\vec{y}) \Rightarrow \text{TAK}`
       }
     ],
@@ -723,12 +723,12 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 2: Uproszczenie gęstości',
-        content: 'Wyciągnijmy $x_3$ przed nawias: $p(x) = \frac{1}{16} x_3 (x_1 + x_2)$.<br/>Dziedzina to sześcian o boku 2.',
+        content: 'Wyciągnijmy $x_3$ przed nawias: $p(x) = \\frac{1}{16} x_3 (x_1 + x_2)$.<br/>Dziedzina to sześcian o boku 2.',
         formula: ""
       },
       {
         title: 'Krok 3: Obliczanie E[X_1]',
-        content: 'Całkujemy $x_1 \cdot \frac{1}{16} x_3 (x_1 + x_2)$.<br/>To wymaga rozbicia na dwie całki i żmudnego liczenia po $dx_1 dx_2 dx_3$.<br/>Z notatek wynika wynik 7/6.',
+        content: 'Całkujemy $x_1 \\cdot \\frac{1}{16} x_3 (x_1 + x_2)$.<br/>To wymaga rozbicia na dwie całki i żmudnego liczenia po $dx_1 dx_2 dx_3$.<br/>Z notatek wynika wynik 7/6.',
         formula: String.raw`E[X_1] = \frac{7}{6}`
       },
       {
@@ -766,7 +766,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 3: Obliczenie stałej normalizacyjnej (mianownika)',
-        content: 'Mianownik $p_Y(y)$ to całka z licznika po wszystkich możliwych $x_1, x_2$ (czyli po kwadracie 0..1).<br/>$\int_0^1 \int_0^1 (0.5 x_1^2 + x_2^2) dx_1 dx_2$.',
+        content: 'Mianownik $p_Y(y)$ to całka z licznika po wszystkich możliwych $x_1, x_2$ (czyli po kwadracie 0..1).<br/>$\\int_0^1 \\int_0^1 (0.5 x_1^2 + x_2^2) dx_1 dx_2$.',
         formula: String.raw`\text{Całka} = \int (0.5 x_1^2) + \int x_2^2 = 0.5 \cdot \frac{1}{3} + \frac{1}{3} = \frac{0.5}{3} + \frac{1}{3} = \frac{1.5}{3} = 0.5`
       },
       {
@@ -776,7 +776,7 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Krok 5: Obliczanie średniej warunkowej',
-        content: 'Teraz liczymy $E[X_1] = \iint x_1 \cdot (x_1^2 + 2x_2^2) dx_1 dx_2$.<br/>I analogicznie dla $X_2$.',
+        content: 'Teraz liczymy $E[X_1] = \\iint x_1 \\cdot (x_1^2 + 2x_2^2) dx_1 dx_2$.<br/>I analogicznie dla $X_2$.',
         formula: String.raw`E[X_1] = \int_0^1 x_1^3 dx \cdot 1 + \int_0^1 2x_2^2 dx \cdot \int_0^1 x_1 dx = \frac{1}{4} + 2\cdot\frac{1}{3}\cdot\frac{1}{2} = \frac{1}{4} + \frac{1}{3} = \frac{7}{12}`
       }
     ],
@@ -799,12 +799,12 @@ export const PROBLEMS_DATA: Problem[] = [
       },
       {
         title: 'Dowód 1: Hermitowskość',
-        content: 'Bierzemy sprzężenie hermitowskie całej macierzy $C_X^H$.<br/>$(AB)^H = B^H A^H$.<br/>$C_X^H = E[ ((\vec{X}-\vec{m})(\vec{X}-\vec{m})^H)^H ] = E[ ((\vec{X}-\vec{m})^H)^H (\vec{X}-\vec{m})^H ] = E[ (\vec{X}-\vec{m}) (\vec{X}-\vec{m})^H ] = C_X$.',
+        content: 'Bierzemy sprzężenie hermitowskie całej macierzy $C_X^H$.<br/>$(AB)^H = B^H A^H$.<br/>$C_X^H = E[ ((\\vec{X}-\\vec{m})(\\vec{X}-\\vec{m})^H)^H ] = E[ ((\\vec{X}-\\vec{m})^H)^H (\\vec{X}-\\vec{m})^H ] = E[ (\\vec{X}-\\vec{m}) (\\vec{X}-\\vec{m})^H ] = C_X$.',
         formula: String.raw`C_X^H = C_X`
       },
       {
         title: 'Dowód 2: Dodatnia półokreśloność',
-        content: 'Musimy pokazać, że dla dowolnego wektora $\vec{a}$, forma kwadratowa $\vec{a}^H C_X \vec{a} \ge 0$.<br/>Podstawiamy definicję $C_X$.<br/>$\vec{a}^H E[ (\vec{X}-\vec{m})(\vec{X}-\vec{m})^H ] \vec{a} = E[ \vec{a}^H (\vec{X}-\vec{m}) (\vec{X}-\vec{m})^H \vec{a} ]$.<br/>Wyrażenie w środku to iloczyn skalarny postaci $z^H z = |z|^2$, gdzie $z = (\vec{X}-\vec{m})^H \vec{a}$.<br/>Wartość oczekiwana z liczby nieujemnej ($|z|^2 \ge 0$) jest zawsze nieujemna.',
+        content: 'Musimy pokazać, że dla dowolnego wektora $\\vec{a}$, forma kwadratowa $\\vec{a}^H C_X \\vec{a} \\ge 0$.<br/>Podstawiamy definicję $C_X$.<br/>$\\vec{a}^H E[ (\\vec{X}-\\vec{m})(\\vec{X}-\\vec{m})^H ] \\vec{a} = E[ \\vec{a}^H (\\vec{X}-\\vec{m}) (\\vec{X}-\\vec{m})^H \\vec{a} ]$.<br/>Wyrażenie w środku to iloczyn skalarny postaci $z^H z = |z|^2$, gdzie $z = (\\vec{X}-\\vec{m})^H \\vec{a}$.<br/>Wartość oczekiwana z liczby nieujemnej ($|z|^2 \\ge 0$) jest zawsze nieujemna.',
         formula: String.raw`\vec{a}^H C_X \vec{a} \ge 0`
       }
     ],
